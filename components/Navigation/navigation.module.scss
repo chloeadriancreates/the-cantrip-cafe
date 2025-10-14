@@ -1,0 +1,15 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+@use "../../utils/functions";
+
+.navigation {
+    @include mixins.flex;
+    gap: functions.pixelsToRem(40);
+
+    & a {
+        font-size: functions.pixelsToRem(25);
+        padding: functions.pixelsToRem(15) functions.pixelsToRem(30);
+        border: solid 2px variables.$brownie;
+        border-radius: 500px;
+    }
+}

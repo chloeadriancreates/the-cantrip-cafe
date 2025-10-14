@@ -1,0 +1,9 @@
+@use "../utils/variables";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: variables.$brownie;
+    text-decoration: none;
+}

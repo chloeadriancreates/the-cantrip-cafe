@@ -1,0 +1,36 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+@use "../../utils/functions";
+
+.search {
+    position: relative;
+    border: none;
+
+    & label {
+        @include mixins.assistiveTechOnly;
+    }
+
+    & input {
+        font-family: Bacasime Antique, Bacasime Antique Fallback;
+        font-size: functions.pixelsToRem(25);
+        padding: functions.pixelsToRem(15) functions.pixelsToRem(60) functions.pixelsToRem(15) functions.pixelsToRem(30);
+        border: solid 2px variables.$brownie;
+        border-radius: 500px;
+        background-color: variables.$cream;
+
+        &::placeholder {
+            color: variables.$coffee;
+        }
+    }
+
+    & svg {
+        position: absolute;
+        right: functions.pixelsToRem(30);
+        top: 50%;
+        transform: translateY(-50%);
+
+        & path {
+            fill: variables.$brownie;
+        }
+    }
+}

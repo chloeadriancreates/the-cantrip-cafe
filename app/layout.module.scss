@@ -1,0 +1,23 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+@use "../utils/functions";
+
+.body {
+    @include mixins.flex(column, center, center);
+    gap: functions.pixelsToRem(40);
+    background-color: variables.$cream;
+    color: variables.$brownie;
+
+    & header {
+        @include mixins.flex(column, center, center);
+        gap: functions.pixelsToRem(40);
+        padding: functions.pixelsToRem(50);
+        width: 100%;
+
+        & h1 {
+            font-size: functions.pixelsToRem(70);
+            font-weight: normal;
+            text-align: center;
+        }
+    }
+}
