@@ -2,8 +2,8 @@
 @use "../../utils/functions";
 
 .spellmenu {
-    @include mixins.flex(row, space-between, center);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     margin-top: functions.pixelsToRem(50);
     gap: functions.pixelsToRem(50);
 }
