@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import styles from "./filter.module.scss";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const Filter = ({ type, index, name }: { type: string, index: string, name: string }) => {
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
-    const pathname = usePathname();
     const { replace } = useRouter();
 
     const [pressed, setPressed] = useState(!!params.get(type)?.includes(index));
@@ -37,12 +36,16 @@ const Filter = ({ type, index, name }: { type: string, index: string, name: stri
             setPressed(true);
         }
 
-        replace(`${pathname}?${params.toString()}`);
+        replace(`?${params.toString()}`);
     }
 
     return (
         <li className={styles.filter}>
-            <button key={index} onClick={() => toggleFilter(type, index)} aria-pressed={pressed}>
+            <button
+                key={index}
+                onClick={() => toggleFilter(type, index)}
+                aria-pressed={pressed}
+            >
                 {name}
             </button>
         </li>

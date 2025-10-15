@@ -4,6 +4,11 @@ import Filter from "../Filter/filter";
 import Link from "next/link";
 
 const Filters = ({ classes, levels }: { classes: Class[], levels: Level[] }) => {
+    const resetFilters = () => {
+        const filters = document.querySelectorAll("[class*='filters'] ul li button");
+        filters.forEach(filter => filter.setAttribute("aria-pressed", "false"));
+    }
+
     return (
         <div className={styles.filters}>
             <section>
@@ -18,7 +23,7 @@ const Filters = ({ classes, levels }: { classes: Class[], levels: Level[] }) => 
                     {levels.map(({ index, name }) => <Filter key={index} type="level" index={index} name={name} />)}
                 </ul>
             </section>
-            <Link href="/">Reset all filters</Link>
+            <Link href="/" onClick={resetFilters}>Reset all filters</Link>
         </div>
     )
 }
