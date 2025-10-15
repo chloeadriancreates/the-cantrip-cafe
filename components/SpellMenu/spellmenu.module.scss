@@ -1,3 +1,4 @@
+@use "../../utils/variables";
 @use "../../utils/mixins";
 @use "../../utils/functions";
 
@@ -6,4 +7,10 @@
     grid-template-columns: repeat(4, 1fr);
     margin-top: functions.pixelsToRem(50);
     gap: functions.pixelsToRem(50);
+
+    & > p {
+        grid-column: 1 / span 4;
+        font-size: functions.pixelsToRem(variables.$body);
+        text-align: center;
+    }
 }

@@ -27,18 +27,24 @@ const SpellMenu = ({ spells }: { spells: FormattedSpellBasics[] }) => {
         });
     }
 
+    const filteredSpells = filterSpells(spells);
+
     return (
         <section className={styles.spellmenu}>
-            {filterSpells(spells).map((spell: FormattedSpellBasics) =>
-                <SpellCard
-                    spell={spell}
-                    key={spell.index}
-                    flipped={flipped === spell.index}
-                    setFlipped={setFlipped}
-                    suggested={suggested === spell.index}
-                    setSuggested={setSuggested}
-                />
-            )}
+            {filteredSpells.length ?
+                filteredSpells.map((spell: FormattedSpellBasics) =>
+                    <SpellCard
+                        spell={spell}
+                        key={spell.index}
+                        flipped={flipped === spell.index}
+                        setFlipped={setFlipped}
+                        suggested={suggested === spell.index}
+                        setSuggested={setSuggested}
+                    />
+                )
+                :
+                <p>No spell matches your query. Try some other filters (or get homebrewing)!</p>
+            }
         </section>
     )
 }
