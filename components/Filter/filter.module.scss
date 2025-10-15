@@ -4,7 +4,7 @@
 
 .filter {
     & button {
-        @include mixins.button(0.75);
+        @include mixins.button(0.8);
         background: none;
         font-family: variables.$font;
     }

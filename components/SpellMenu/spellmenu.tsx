@@ -1,11 +1,15 @@
 "use client"
 
 import styles from "./spellmenu.module.scss";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { FormattedSpellBasics } from "@/utils/types";
 import SpellCard from "../SpellCard/spellcard";
 
 const SpellMenu = ({ spells }: { spells: FormattedSpellBasics[] }) => {
+    const [suggested, setSuggested] = useState("");
+    const [flipped, setFlipped] = useState("");
+
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
 
@@ -24,7 +28,16 @@ const SpellMenu = ({ spells }: { spells: FormattedSpellBasics[] }) => {
 
     return (
         <section className={styles.spellmenu}>
-            {filterSpells(spells).map((spell: FormattedSpellBasics) => <SpellCard spell={spell} key={spell.index} />)}
+            {filterSpells(spells).map((spell: FormattedSpellBasics) =>
+                <SpellCard
+                    spell={spell}
+                    key={spell.index}
+                    flipped={flipped === spell.index}
+                    setFlipped={setFlipped}
+                    suggested={suggested === spell.index}
+                    setSuggested={setSuggested}
+                />
+            )}
         </section>
     )
 }

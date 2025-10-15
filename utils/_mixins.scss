@@ -18,7 +18,7 @@
     width: 1px;
 }
 
-@mixin button($ratio) {
+@mixin button($ratio: 1) {
     background: none;
     font-family: variables.$font;
     font-size: calc(functions.pixelsToRem(variables.$body) * $ratio);
@@ -31,4 +31,13 @@
         background-color: variables.$brownie;
         color: variables.$cream;
     }
+}
+
+@mixin arch($color: variables.$cream) {
+    width: 100%;
+    height: 100%;
+    border-radius: 500px 500px 0 0;
+    background-color: $color;
+    border: solid 2px variables.$cream;
+    padding: functions.pixelsToRem(18);
 }

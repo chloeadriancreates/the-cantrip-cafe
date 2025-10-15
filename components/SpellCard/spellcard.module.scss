@@ -1,3 +1,91 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+@use "../../utils/functions";
+
 .spellcard {
-    
+    width: 21%;
+    aspect-ratio: 1 / 1.7;
+    perspective: 1000px;
+
+    &>div {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+
+        &>div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: none;
+            cursor: pointer;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+
+            &:first-of-type {
+                @include mixins.arch(variables.$caramel);
+
+                &>div {
+                    @include mixins.arch(variables.$coffee);
+
+                    &>button,
+                    &>a {
+                        @include mixins.arch(variables.$brownie);
+                        @include mixins.flex(column, center, center);
+                        color: variables.$cream;
+                        font-family: variables.$font;
+                        font-size: variables.$body;
+                        gap: functions.pixelsToRem(10);
+                        cursor: pointer;
+                        text-align: center;
+                    }
+                }
+            }
+
+            &:last-of-type {
+                @include mixins.arch(variables.$coffee);
+                transform: rotateY(180deg);
+
+                &>div {
+                    @include mixins.arch(variables.$caramel);
+
+                    &>button,
+                    &>a {
+                        @include mixins.arch(variables.$cream);
+                        @include mixins.flex(column, center, center);
+                        color: variables.$brownie;
+                        font-family: variables.$font;
+                        font-size: variables.$body;
+                        gap: functions.pixelsToRem(10);
+                        cursor: pointer;
+                        text-align: center;
+                    }
+
+                    &>a {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-flipped="false"][data-suggested="true"]>div {
+        transform: translateY(-1rem) rotateY(10deg);
+    }
+
+    &[data-flipped="true"][data-suggested="false"]>div {
+        transform: rotateY(180deg);
+
+        &>div>div>a {
+            display: flex;
+        }
+    }
+
+    &[data-flipped="true"][data-suggested="true"]>div {
+        transform: translateY(-1rem) rotateY(190deg);
+
+        &>div>div>a {
+            display: flex;
+        }
+    }
 }

@@ -1,0 +1,9 @@
+@use "../../utils/mixins";
+@use "../../utils/functions";
+
+.spellmenu {
+    @include mixins.flex(row, space-between, center);
+    flex-wrap: wrap;
+    margin-top: functions.pixelsToRem(50);
+    gap: functions.pixelsToRem(50);
+}

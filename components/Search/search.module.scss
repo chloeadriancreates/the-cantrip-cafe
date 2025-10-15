@@ -13,7 +13,7 @@
 
     & input {
         font-family: variables.$font;
-        font-size: functions.pixelsToRem(25);
+        font-size: functions.pixelsToRem(variables.$body);
         padding: functions.pixelsToRem(15) functions.pixelsToRem(60) functions.pixelsToRem(15) functions.pixelsToRem(30);
         border: variables.$border;
         border-radius: 500px;

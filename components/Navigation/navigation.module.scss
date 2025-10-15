@@ -10,7 +10,7 @@
         gap: functions.pixelsToRem(40);
 
         & button {
-            @include mixins.button(1);
+            @include mixins.button;
             min-width: 18ch;
             text-align: center;
         }

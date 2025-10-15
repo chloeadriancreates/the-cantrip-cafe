@@ -1,0 +1,11 @@
+@use "../../utils/variables";
+
+.sparkle {
+    &[data-theme="light"] path {
+        stroke: variables.$cream;
+    }
+
+    &[data-theme="dark"] path {
+        stroke: variables.$brownie;
+    }
+}
