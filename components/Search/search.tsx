@@ -13,7 +13,7 @@ const Search = () => {
         const search = event.target.value;
 
         if (search) {
-            params.set("search", search);
+            params.set("search", search.toLowerCase());
         } else {
             params.delete("search");
         }
