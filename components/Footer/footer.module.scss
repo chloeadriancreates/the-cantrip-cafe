@@ -1,0 +1,43 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+@use "../../utils/functions";
+
+.footer {
+    background: variables.$brownie;
+    width: 100%;
+    padding: functions.pixelsToRem(25) functions.pixelsToRem(50);
+
+    &>div {
+        @include mixins.flex(row, flex-end, flex-start);
+        gap: 0.5rem;
+        margin-top: functions.pixelsToRem(2);
+
+        &>span {
+            @include mixins.flex(column, center, center);
+            font-size: functions.pixelsToRem(variables.$body);
+            color: variables.$cream;
+        }
+
+        &>a {
+            @include mixins.flex(column, center, center);
+            font-size: functions.pixelsToRem(variables.$body);
+            color: variables.$cream;
+
+            &::after {
+                content: "";
+                width: 0%;
+                transform-origin: center;
+                height: functions.pixelsToRem(2);
+                background: variables.$cream;
+                border-radius: 500px;
+                margin-top: functions.pixelsToRem(2);
+                transition: width 0.3s ease;
+            }
+
+            &:hover::after,
+            &:focus::after {
+                width: 100%;
+            }
+        }
+    }
+}

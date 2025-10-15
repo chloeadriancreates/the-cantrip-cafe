@@ -3,6 +3,7 @@ import styles from "./layout.module.scss";
 import { ReactNode } from "react";
 import { Bacasime_Antique } from "next/font/google";
 import Link from "next/link";
+import Footer from "@/components/Footer/footer";
 
 const bacasime = Bacasime_Antique({
   weight: "400",
@@ -20,6 +21,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           </Link>
         </header>
         {children}
+        <Footer />
       </body>
     </html>
   )
