@@ -1,13 +1,32 @@
+"use client"
+
 import styles from "./spellmenu.module.scss";
+import { useSearchParams } from "next/navigation";
 import { FormattedSpellBasics } from "@/utils/types";
 import SpellCard from "../SpellCard/spellcard";
 
-const SpellList = ({ spells }: { spells: FormattedSpellBasics[] }) => {
+const SpellMenu = ({ spells }: { spells: FormattedSpellBasics[] }) => {
+    const searchParams = useSearchParams();
+    const params = new URLSearchParams(searchParams);
+
+    const filterSpells = (spells: FormattedSpellBasics[]) => {
+        const classes = params.get("class");
+        const levels = params.get("level");
+        const search = params.get("search");
+
+        return spells.filter(spell => {
+            const matchesClass = !classes || spell.classes.find(cls => classes.includes(cls.index));
+            const matchesLevel = !levels || levels.includes(`${spell.level}`);
+            const matchesSearch = !search || spell.name.toLowerCase().includes(search.toLowerCase());
+            return matchesClass && matchesLevel && matchesSearch;
+        });
+    }
+
     return (
         <section className={styles.spellmenu}>
-            {spells.map((spell: FormattedSpellBasics) => <SpellCard spell={spell} key={spell.index} />)}
+            {filterSpells(spells).map((spell: FormattedSpellBasics) => <SpellCard spell={spell} key={spell.index} />)}
         </section>
     )
 }
 
-export default SpellList;
+export default SpellMenu;

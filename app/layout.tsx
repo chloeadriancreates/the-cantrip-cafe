@@ -2,7 +2,7 @@ import "./globals.scss";
 import styles from "./layout.module.scss";
 import { ReactNode } from "react";
 import { Bacasime_Antique } from "next/font/google";
-import Navigation from "@/components/Navigation/navigation";
+import Link from "next/link";
 
 const bacasime = Bacasime_Antique({
   weight: "400",
@@ -15,8 +15,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <head></head>
       <body className={styles.body}>
         <header>
-          <h1>The Cantrip Café</h1>
-          <Navigation />
+          <Link href="/">
+            <h1>The Cantrip Café</h1>
+          </Link>
         </header>
         {children}
       </body>

@@ -3,13 +3,16 @@
 @use "../../utils/functions";
 
 .navigation {
-    @include mixins.flex;
-    gap: functions.pixelsToRem(40);
+    width: 100%;
 
-    & a {
-        font-size: functions.pixelsToRem(25);
-        padding: functions.pixelsToRem(15) functions.pixelsToRem(30);
-        border: solid 2px variables.$brownie;
-        border-radius: 500px;
+    &>section {
+        @include mixins.flex;
+        gap: functions.pixelsToRem(40);
+
+        & button {
+            @include mixins.button(1);
+            min-width: 18ch;
+            text-align: center;
+        }
     }
 }

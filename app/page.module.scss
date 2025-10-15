@@ -1,9 +1,6 @@
-.main {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+@use "../utils/functions";
 
-    & section {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
+.main {
+    width: 100%;
+    padding: functions.pixelsToRem(50);
 }

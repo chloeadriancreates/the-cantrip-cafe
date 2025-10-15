@@ -1,0 +1,11 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+@use "../../utils/functions";
+
+.filter {
+    & button {
+        @include mixins.button(0.75);
+        background: none;
+        font-family: variables.$font;
+    }
+}

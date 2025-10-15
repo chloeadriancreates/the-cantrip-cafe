@@ -5,18 +5,20 @@
 .search {
     position: relative;
     border: none;
+    flex-grow: 1;
 
     & label {
         @include mixins.assistiveTechOnly;
     }
 
     & input {
-        font-family: Bacasime Antique, Bacasime Antique Fallback;
+        font-family: variables.$font;
         font-size: functions.pixelsToRem(25);
         padding: functions.pixelsToRem(15) functions.pixelsToRem(60) functions.pixelsToRem(15) functions.pixelsToRem(30);
-        border: solid 2px variables.$brownie;
+        border: variables.$border;
         border-radius: 500px;
         background-color: variables.$cream;
+        width: 100%;
 
         &::placeholder {
             color: variables.$coffee;

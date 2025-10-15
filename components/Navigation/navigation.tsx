@@ -1,13 +1,24 @@
+"use client"
+
+import { useState } from "react";
+import { Class, Level } from "@/utils/types";
+import Filters from "../Filters/filters";
 import Search from "../Search/search";
 import styles from "./navigation.module.scss";
-import Link from "next/link";
 
-const Navigation = () => {
+const Navigation = ({ classes, levels }: { classes: Class[], levels: Level[] }) => {
+    const [filters, setFilters] = useState(false);
+
     return (
         <nav className={styles.navigation}>
-            <Link href="/">Browse all spells</Link>
-            <Link href="/">See a random spell</Link>
-            <Search />
+            <section>
+                <button onClick={() => setFilters(!filters)} aria-pressed={filters}>
+                    {filters ? "Hide filters" : "Show filters"}
+                </button>
+                <button>See a random spell</button>
+                <Search />
+            </section>
+            {filters && <Filters classes={classes} levels={levels} />}
         </nav>
     )
 }

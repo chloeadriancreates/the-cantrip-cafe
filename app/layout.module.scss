@@ -4,14 +4,12 @@
 
 .body {
     @include mixins.flex(column, center, center);
-    gap: functions.pixelsToRem(40);
     background-color: variables.$cream;
     color: variables.$brownie;
 
     & header {
         @include mixins.flex(column, center, center);
-        gap: functions.pixelsToRem(40);
-        padding: functions.pixelsToRem(50);
+        padding: functions.pixelsToRem(50) functions.pixelsToRem(50) 0;
         width: 100%;
 
         & h1 {

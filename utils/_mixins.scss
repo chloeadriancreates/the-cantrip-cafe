@@ -1,3 +1,6 @@
+@use "./variables";
+@use "./functions";
+
 @mixin flex($direction: row, $justify: center, $align: center) {
     display: flex;
     flex-direction: $direction;
@@ -13,4 +16,19 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
+}
+
+@mixin button($ratio) {
+    background: none;
+    font-family: variables.$font;
+    font-size: calc(functions.pixelsToRem(variables.$body) * $ratio);
+    padding: calc(functions.pixelsToRem(15) * $ratio) calc(functions.pixelsToRem(30) * $ratio);
+    border: variables.$border;
+    border-radius: 500px;
+    cursor: pointer;
+
+    &[aria-pressed="true"] {
+        background-color: variables.$brownie;
+        color: variables.$cream;
+    }
 }

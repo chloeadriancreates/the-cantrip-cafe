@@ -1,0 +1,29 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+@use "../../utils/functions";
+
+.filters {
+    @include mixins.flex(column, flex-start, flex-start);
+    gap: functions.pixelsToRem(30);
+    margin: functions.pixelsToRem(30) 0;
+
+    & section {
+        @include mixins.flex(column, flex-start, flex-start);
+        gap: functions.pixelsToRem(15);
+        
+        & h3 {
+            font-size: functions.pixelsToRem(variables.$body);
+        }
+
+        & ul {
+            @include mixins.flex(row, flex-start, flex-start);
+            flex-wrap: wrap;
+            list-style: none;
+            gap: functions.pixelsToRem(15);
+        }
+    }
+
+    & a {
+        font-size: functions.pixelsToRem(variables.$body);
+    }
+}
