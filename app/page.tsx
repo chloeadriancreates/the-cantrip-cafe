@@ -10,7 +10,7 @@ const Home = async () => {
 
   return (
     <main className={styles.main}>
-      <Navigation classes={classes} levels={levels} />
+      <Navigation classes={classes} levels={levels} spells={spells} />
       <SpellMenu spells={spells} />
     </main>
   )

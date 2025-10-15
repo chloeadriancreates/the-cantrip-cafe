@@ -1,13 +1,20 @@
 "use client"
 
 import { useState } from "react";
-import { Class, Level } from "@/utils/types";
+import { useRouter } from "next/navigation";
+import { Class, FormattedSpellBasics, Level } from "@/utils/types";
 import Filters from "../Filters/filters";
 import Search from "../Search/search";
 import styles from "./navigation.module.scss";
 
-const Navigation = ({ classes, levels }: { classes: Class[], levels: Level[] }) => {
+const Navigation = ({ classes, levels, spells }: { classes: Class[], levels: Level[], spells: FormattedSpellBasics[] }) => {
     const [filters, setFilters] = useState(false);
+    const { replace } = useRouter();
+
+    const selectRandomSpell = () => {
+        const random = Math.floor(Math.random() * spells.length);
+        replace(`/spell/${spells[random].index}`);
+    }
 
     return (
         <nav className={styles.navigation}>
@@ -15,7 +22,7 @@ const Navigation = ({ classes, levels }: { classes: Class[], levels: Level[] }) 
                 <button onClick={() => setFilters(!filters)} aria-pressed={filters}>
                     {filters ? "Hide filters" : "Show filters"}
                 </button>
-                <button>See a random spell</button>
+                <button onClick={selectRandomSpell}>See a random spell</button>
                 <Search />
             </section>
             {filters && <Filters classes={classes} levels={levels} />}

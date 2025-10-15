@@ -9,9 +9,8 @@ import Link from "next/link";
 const SpellCard = ({ spell, flipped, setFlipped, suggested, setSuggested }: { spell: FormattedSpellBasics, flipped: boolean, setFlipped: Dispatch<SetStateAction<string>>, suggested: boolean, setSuggested: Dispatch<SetStateAction<string>> }) => {
 
     const { name, index } = spell;
-
     return (
-        <article className={styles.spellcard} data-flipped={flipped} data-suggested={suggested}>
+        <article className={styles.spellcard} data-spell={index} data-flipped={flipped} data-suggested={suggested}>
             <div>
                 <div>
                     <div>
