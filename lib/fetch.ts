@@ -47,3 +47,9 @@ export const getSpells = async () => {
         spells: spells
     };
 };
+
+export const getSpellDetails = async (params: Promise<{ index: string }>) => {
+    const { index } = await params;
+    const response = await fetch(`https://www.dnd5eapi.co/api/2014/spells/${index}`, { next: { revalidate: 86400 } });
+    return await response.json();
+}

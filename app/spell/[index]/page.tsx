@@ -1,14 +1,22 @@
 import styles from "./page.module.scss";
 import DetailRow from "@/components/DetailRow/detailrow";
 import { Class } from "@/lib/types";
+import { Metadata } from "next";
 import { formatCastingDetails, formatMaterialDetails, formatDamageDetails } from "@/lib/formatter";
+import { getSpellDetails } from "@/lib/fetch";
+
+export async function generateMetadata(
+    { params }: { params: Promise<{ index: string }> }
+): Promise<Metadata> {
+    const spell = await getSpellDetails(params);
+    return {
+        title: spell.name,
+        description: spell.desc?.[0]?.slice(0, 150)
+    };
+}
 
 const SpellPage = async ({ params }: { params: Promise<{ index: string }> }) => {
-    const { index } = await params;
-    const response = await fetch(`https://www.dnd5eapi.co/api/2014/spells/${index}`, { next: { revalidate: 86400 } });
-    const spell = await response.json();
-
-    const { name, level, school, classes, casting_time, duration, concentration, ritual, range, components, material, damage, desc, higher_level } = await spell;
+    const { name, level, school, classes, casting_time, duration, concentration, ritual, range, components, material, damage, desc, higher_level } = await getSpellDetails(params);
 
     return (
         <main className={styles.main}>

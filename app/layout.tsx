@@ -2,8 +2,16 @@ import "./globals.scss";
 import styles from "./layout.module.scss";
 import { ReactNode } from "react";
 import { Bacasime_Antique } from "next/font/google";
+import { Metadata } from 'next';
 import Link from "next/link";
 import Footer from "@/components/Footer/footer";
+
+export const metadata: Metadata = {
+    title: {
+        template: "%s | The Cantrip Café",
+        default: "The Cantrip Café"
+    }
+};
 
 const bacasime = Bacasime_Antique({
   weight: "400",
