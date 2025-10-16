@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Class, FormattedSpellBasics, Level } from "@/utils/types";
+import { Class, FormattedSpellBasics, Level } from "@/lib/types";
 import Filters from "../Filters/filters";
 import Search from "../Search/search";
 import styles from "./navigation.module.scss";

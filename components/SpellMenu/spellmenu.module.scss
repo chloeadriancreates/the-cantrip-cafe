@@ -1,7 +1,6 @@
-@use "../../utils/variables";
-@use "../../utils/mixins";
-@use "../../utils/functions";
-@use "../../utils/breakpoints";
+@use "../../styles/variables";
+@use "../../styles/functions";
+@use "../../styles/breakpoints";
 
 .spellmenu {
     display: grid;

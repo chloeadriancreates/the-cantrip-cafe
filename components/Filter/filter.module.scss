@@ -1,6 +1,5 @@
-@use "../../utils/variables";
-@use "../../utils/mixins";
-@use "../../utils/functions";
+@use "../../styles/variables";
+@use "../../styles/mixins";
 
 .filter {
     & button {

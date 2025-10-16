@@ -1,7 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { OriginalSpellBasics, FormattedSpellBasics } from "@/utils/types";
+import { OriginalSpellBasics, FormattedSpellBasics } from "@/lib/types";
 
-export const GET = async (request: NextRequest) => {
+export const getSpells = async () => {
     const classResponse = await fetch("https://www.dnd5eapi.co/api/2014/classes");
     const classData = await classResponse.json();
     const classes = await classData.results;
@@ -42,9 +41,9 @@ export const GET = async (request: NextRequest) => {
 
     const spells = [...spellMap.values()].sort((a, b) => a.name.localeCompare(b.name));
 
-    return NextResponse.json({
+    return {
         classes: classes,
         levels: levels,
         spells: spells
-    });
+    };
 };

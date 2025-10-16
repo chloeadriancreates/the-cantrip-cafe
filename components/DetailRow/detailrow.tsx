@@ -1,5 +1,5 @@
 import styles from "./detailrow.module.scss";
-import { CategoryDetails } from "@/utils/types";
+import { CategoryDetails } from "@/lib/types";
 
 const DetailRow = ({ details }: { details: CategoryDetails[] }) => {
     return (

@@ -4,7 +4,7 @@ import styles from "./spellmenu.module.scss";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from 'next/dynamic'
-import { FormattedSpellBasics } from "@/utils/types";
+import { FormattedSpellBasics } from "@/lib/types";
 const SpellCard = dynamic(() => import("../SpellCard/spellcard"))
 
 const SpellMenu = ({ spells }: { spells: FormattedSpellBasics[] }) => {

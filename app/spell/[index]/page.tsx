@@ -1,11 +1,11 @@
 import styles from "./page.module.scss";
 import DetailRow from "@/components/DetailRow/detailrow";
-import { Class } from "@/utils/types";
-import { formatCastingDetails, formatDamageDetails, formatMaterialDetails } from "@/utils/formatter";
+import { Class } from "@/lib/types";
+import { formatCastingDetails, formatMaterialDetails, formatDamageDetails } from "@/lib/formatter";
 
 const SpellPage = async ({ params }: { params: Promise<{ index: string }> }) => {
     const { index } = await params;
-    const response = await fetch(`https://www.dnd5eapi.co/api/2014/spells/${index}`);
+    const response = await fetch(`https://www.dnd5eapi.co/api/2014/spells/${index}`, { next: { revalidate: 86400 } });
     const spell = await response.json();
 
     const { name, level, school, classes, casting_time, duration, concentration, ritual, range, components, material, damage, desc, higher_level } = await spell;

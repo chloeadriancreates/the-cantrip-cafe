@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./spellcard.module.scss";
-import { FormattedSpellBasics } from "@/utils/types";
+import { FormattedSpellBasics } from "@/lib/types";
 import { Dispatch, SetStateAction } from "react";
 import Sparkle from "../Sparkle/sparkle";
 import Link from "next/link";

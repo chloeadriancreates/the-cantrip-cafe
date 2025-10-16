@@ -1,5 +1,5 @@
 import styles from "./filters.module.scss";
-import { Class, Level } from "@/utils/types";
+import { Class, Level } from "@/lib/types";
 import Filter from "../Filter/filter";
 import Link from "next/link";
 

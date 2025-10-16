@@ -1,12 +1,10 @@
 import styles from "./page.module.scss";
+import { getSpells } from "@/lib/fetch";
 import Navigation from "@/components/Navigation/navigation";
 import SpellMenu from "@/components/SpellMenu/spellmenu";
 
 const Home = async () => {
-  // const response = await fetch("http://localhost:3000/api/spells", { next: { revalidate: 86400 } });
-
-  const response = await fetch("http://localhost:3000/api");
-  const { classes, levels, spells } = await response.json();
+  const { classes, levels, spells } = await getSpells();
 
   return (
     <main className={styles.main}>
