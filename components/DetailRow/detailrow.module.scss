@@ -1,0 +1,42 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+@use "../../utils/functions";
+
+.detailrow {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    width: 100%;
+    border-left: solid 2px variables.$cream;
+    border-right: solid 2px variables.$cream;
+
+    &>div {
+        display: contents;
+        height: 100%;
+
+        & h3,
+        & p {
+            padding: functions.pixelsToRem(20);
+            font-size: functions.pixelsToRem(variables.$body);
+            text-align: center;
+        }
+
+        & h3 {
+            background-color: variables.$coffee;
+            color: variables.$cream;
+            flex: 0;
+        }
+
+        & p {
+            background-color: variables.$cream;
+            color: variables.$brownie;
+            flex: 1;
+        }
+
+        &:not(:last-child) h3,
+        &:not(:last-child) p {
+            border-right: 1px solid variables.$brownie;
+        }
+    }
+}

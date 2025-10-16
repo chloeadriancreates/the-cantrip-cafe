@@ -17,3 +17,9 @@ export type OriginalSpellBasics = Base & {
 export type FormattedSpellBasics = OriginalSpellBasics & {
     classes: Class[]
 };
+
+export type CategoryDetails = {
+    category: string,
+    title: string,
+    content: string
+}
