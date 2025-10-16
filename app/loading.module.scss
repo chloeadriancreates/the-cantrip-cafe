@@ -1,0 +1,29 @@
+@use "../styles/variables";
+@use "../styles/mixins";
+@use "../styles/functions";
+
+.loading {
+    @include mixins.flex;
+    height: 100dvh;
+
+    & span {
+        width: functions.pixelsToRem(50);
+        height: functions.pixelsToRem(50);;
+        border: variables.$border;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: spinning 1s linear infinite;
+    }
+
+    @keyframes spinning {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
