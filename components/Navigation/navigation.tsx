@@ -27,7 +27,7 @@ const Navigation = ({ classes, levels, spells }: { classes: Class[], levels: Lev
                     </button>
                 </div>
             </section>
-            {filters && <Filters classes={classes} levels={levels} />}
+            {filters && <Filters classes={classes} levels={levels} setFilters={setFilters} />}
         </nav>
     )
 }

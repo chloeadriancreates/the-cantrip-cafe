@@ -1,12 +1,14 @@
 import styles from "./filters.module.scss";
+import { Dispatch, SetStateAction } from "react";
 import { Class, Level } from "@/lib/types";
 import Filter from "../Filter/filter";
 import Link from "next/link";
 
-const Filters = ({ classes, levels }: { classes: Class[], levels: Level[] }) => {
+const Filters = ({ classes, levels, setFilters }: { classes: Class[], levels: Level[], setFilters: Dispatch<SetStateAction<boolean>> }) => {
     const resetFilters = () => {
         const filters = document.querySelectorAll("[class*='filters'] ul li button");
         filters.forEach(filter => filter.setAttribute("aria-pressed", "false"));
+        setTimeout(() => setFilters(false), 750);
     }
 
     return (
