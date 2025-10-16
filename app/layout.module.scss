@@ -13,7 +13,7 @@
         width: 100%;
 
         & h1 {
-            font-size: functions.pixelsToRem(70);
+            font-size: functions.pixelsToRem(variables.$h1);
             font-weight: normal;
             text-align: center;
         }

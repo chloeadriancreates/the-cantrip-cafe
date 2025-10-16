@@ -6,6 +6,7 @@
     position: relative;
     border: none;
     flex-grow: 1;
+    width: 100%;
 
     & label {
         @include mixins.assistiveTechOnly;

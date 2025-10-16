@@ -19,11 +19,13 @@ const Navigation = ({ classes, levels, spells }: { classes: Class[], levels: Lev
     return (
         <nav className={styles.navigation}>
             <section>
-                <button onClick={() => setFilters(!filters)} aria-pressed={filters}>
-                    {filters ? "Hide filters" : "Show filters"}
-                </button>
-                <button onClick={selectRandomSpell}>See a random spell</button>
                 <Search />
+                <div>
+                    <button onClick={selectRandomSpell}>See a random spell</button>
+                    <button onClick={() => setFilters(!filters)} aria-pressed={filters}>
+                        {filters ? "Hide filters" : "Show filters"}
+                    </button>
+                </div>
             </section>
             {filters && <Filters classes={classes} levels={levels} />}
         </nav>

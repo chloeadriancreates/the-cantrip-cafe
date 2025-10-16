@@ -1,12 +1,26 @@
 @use "../../utils/variables";
 @use "../../utils/mixins";
 @use "../../utils/functions";
+@use "../../utils/breakpoints";
 
 .spellmenu {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin-top: functions.pixelsToRem(50);
     gap: functions.pixelsToRem(50);
+
+    @include breakpoints.laptop {
+        grid-template-columns: repeat(3, 1fr);
+        gap: functions.pixelsToRem(40);
+    }
+
+    @include breakpoints.tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoints.mobile {
+        grid-template-columns: 1fr;
+    }
 
     & > p {
         grid-column: 1 / span 4;

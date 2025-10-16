@@ -1,12 +1,18 @@
 @use "../../../utils/variables";
 @use "../../../utils/mixins";
 @use "../../../utils/functions";
+@use "../../../utils/breakpoints";
 
 .main {
     @include mixins.border(variables.$caramel);
     margin: functions.pixelsToRem(50);
     padding: functions.pixelsToRem(30);
     border-radius: 50px;
+    max-width: 100%;
+
+    @include breakpoints.mobile {
+        padding: functions.pixelsToRem(15);
+    }
 
     &>div {
         @include mixins.border(variables.$coffee);
@@ -14,27 +20,38 @@
         padding: functions.pixelsToRem(30);
         border-radius: 50px;
 
+        @include breakpoints.mobile {
+            padding: functions.pixelsToRem(15);
+        }
+
         & header {
             @include mixins.border(variables.$brownie);
             @include mixins.flex(column, stretch, center);
             width: 100%;
             gap: functions.pixelsToRem(25);
-            padding: functions.pixelsToRem(50);
+            padding: functions.pixelsToRem(50) functions.pixelsToRem(30);
             border-radius: 50px 50px 0 0;
             border-bottom: none;
 
+            @include breakpoints.mobile {
+                padding: functions.pixelsToRem(40) functions.pixelsToRem(30);
+            }
+
             & h2 {
-                font-size: functions.pixelsToRem(50);
+                font-size: functions.pixelsToRem(variables.$h2);
                 color: variables.$cream;
+                text-align: center;
             }
 
             &>div {
                 @include mixins.flex;
+                flex-wrap: wrap;
                 gap: functions.pixelsToRem(5);
 
                 & span {
-                    font-size: functions.pixelsToRem(35);
+                    font-size: functions.pixelsToRem(variables.$h3);
                     color: variables.$cream;
+                    text-align: center;
 
                     &:not(:last-child)::after {
                         content: "|";
@@ -50,12 +67,16 @@
             padding: 0 functions.pixelsToRem(50) functions.pixelsToRem(50) functions.pixelsToRem(50);
             border-radius: 0 0 50px 50px;
 
+            @include breakpoints.mobile {
+                padding: 0 functions.pixelsToRem(40) functions.pixelsToRem(40) functions.pixelsToRem(40);
+            }
+
             & div[data-type="description"] {
                 margin-top: functions.pixelsToRem(50);
 
                 & h3 {
                     @include mixins.flex(column, center, flex-start);
-                    font-size: functions.pixelsToRem(35);
+                    font-size: functions.pixelsToRem(variables.$h3);
                     color: variables.$coffee;
 
                     &::after {
@@ -71,6 +92,10 @@
                     font-size: functions.pixelsToRem(variables.$body);
                     margin-bottom: functions.pixelsToRem(20);
                     line-height: 140%;
+
+                    @include breakpoints.mobile {
+                        line-height: 125%;
+                    }
                 }
             }
         }

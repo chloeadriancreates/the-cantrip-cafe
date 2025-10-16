@@ -1,18 +1,40 @@
 @use "../../utils/variables";
 @use "../../utils/mixins";
 @use "../../utils/functions";
+@use "../../utils/breakpoints";
 
 .navigation {
     width: 100%;
 
     &>section {
         @include mixins.flex;
+        flex-wrap: wrap;
         gap: functions.pixelsToRem(40);
+
+        @include breakpoints.tablet {
+            flex-direction: column;
+        }
+
+        &>div {
+            @include mixins.flex;
+            gap: functions.pixelsToRem(40);
+            flex: 1;
+            width: 100%;
+
+            @include breakpoints.tablet {
+                flex-wrap: wrap;
+            }
+        }
 
         & button {
             @include mixins.button;
-            min-width: 18ch;
+            min-width: 22ch;
             text-align: center;
+            width: 100%;
+
+            @include breakpoints.mobile {
+                min-width: auto;
+            }
         }
     }
 }

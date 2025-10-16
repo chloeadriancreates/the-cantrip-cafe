@@ -1,6 +1,7 @@
 @use "../../utils/variables";
 @use "../../utils/mixins";
 @use "../../utils/functions";
+@use "../../utils/breakpoints";
 
 .detailrow {
     display: grid;
@@ -11,12 +12,17 @@
     border-left: solid 2px variables.$cream;
     border-right: solid 2px variables.$cream;
 
+    @include breakpoints.tablet {
+        grid-auto-flow: row;
+    }
+
     &>div {
         display: contents;
         height: 100%;
 
         & h3,
         & p {
+            @include mixins.flex;
             padding: functions.pixelsToRem(20);
             font-size: functions.pixelsToRem(variables.$body);
             text-align: center;
