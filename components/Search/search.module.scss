@@ -13,6 +13,7 @@
     }
 
     & input {
+        @include mixins.transition;
         font-family: variables.$font;
         font-size: functions.pixelsToRem(variables.$body);
         padding: functions.pixelsToRem(15) functions.pixelsToRem(60) functions.pixelsToRem(15) functions.pixelsToRem(30);
@@ -20,9 +21,15 @@
         border-radius: 500px;
         background-color: variables.$cream;
         width: 100%;
+        
 
         &::placeholder {
             color: variables.$coffee;
+        }
+
+        &:hover,
+        &:focus {
+            outline: solid functions.pixelsToRem(10) variables.$caramel;
         }
     }
 

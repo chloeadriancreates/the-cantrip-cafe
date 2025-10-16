@@ -24,6 +24,7 @@
             color: variables.$cream;
 
             &::after {
+                @include mixins.transition;
                 content: "";
                 width: 0%;
                 transform-origin: center;
@@ -31,7 +32,6 @@
                 background: variables.$cream;
                 border-radius: 500px;
                 margin-top: functions.pixelsToRem(2);
-                transition: width 0.3s ease;
             }
 
             &:hover::after,

@@ -18,7 +18,12 @@
     width: 1px;
 }
 
+@mixin transition($property: all) {
+    transition: $property 0.3s ease;
+}
+
 @mixin button($ratio: 1) {
+    @include transition;
     background: none;
     font-family: variables.$font;
     font-size: calc(functions.pixelsToRem(variables.$body) * $ratio);
@@ -26,6 +31,14 @@
     border: variables.$border;
     border-radius: 500px;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: variables.$brownie;
+        color: variables.$cream;
+        border: solid 2px variables.$cream;
+        outline: solid calc(functions.pixelsToRem(10) * $ratio) variables.$caramel;
+    }
 
     &[aria-pressed="true"] {
         background-color: variables.$brownie;
