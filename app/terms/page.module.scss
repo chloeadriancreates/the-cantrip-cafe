@@ -1,0 +1,53 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+@use "../../styles/functions";
+@use "../../styles/breakpoints";
+
+.main {
+    @include mixins.flex(column, flex-start, flex-start);
+    margin: functions.pixelsToRem(50);
+    gap: functions.pixelsToRem(30);
+
+    & section {
+        &[data-container="header"] {
+            @include mixins.flex(column, center, center);
+            gap: functions.pixelsToRem(15);
+
+            & h2 {
+                font-size: functions.pixelsToRem(variables.$h2);
+                text-align: center;
+            }
+
+            & p {
+                &:first-of-type {
+                    margin-bottom: functions.pixelsToRem(50);
+                    font-size: functions.pixelsToRem(calc(variables.$h2 / 2));
+                    text-align: center;
+
+                    @include breakpoints.mobile {
+                        font-size: functions.pixelsToRem(variables.$body);
+                    }
+                }
+
+                &:not(:first-of-type) {
+                    font-size: functions.pixelsToRem(variables.$body);
+                }
+            }
+        }
+
+        &[data-container="article"] {
+            @include mixins.flex(column, flex-start, flex-start);
+            gap: functions.pixelsToRem(5);
+
+            & h3 {
+                font-size: functions.pixelsToRem(variables.$h3);
+                color: variables.$coffee;
+                margin-bottom: functions.pixelsToRem(10);
+            }
+
+            & p {
+                font-size: variables.$body;
+            }
+        }
+    }
+}

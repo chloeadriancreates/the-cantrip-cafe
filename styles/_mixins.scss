@@ -60,3 +60,25 @@
     background-color: $color;
     border: solid 2px variables.$cream;
 }
+
+@mixin link($color: variables.$cream) {
+    @include flex(column, center, center);
+    font-size: functions.pixelsToRem(variables.$body);
+    color: $color;
+
+    &::after {
+        @include transition;
+        content: "";
+        width: 0%;
+        transform-origin: center;
+        height: functions.pixelsToRem(2);
+        background: $color;
+        border-radius: 500px;
+        margin-top: functions.pixelsToRem(2);
+    }
+
+    &:hover::after,
+    &:focus::after {
+        width: 100%;
+    }
+}
