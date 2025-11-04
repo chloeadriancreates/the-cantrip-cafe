@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Banner](READMEbanner.jpg)
 
-## Getting Started
+# 🪄 The Cantrip Café
 
-First, run the development server:
+**A searchable spellbook for Dungeons & Dragons 5e, designed and developed from scratch with Next.js, TypeScript, and Sass.**  
+Created in 2025 as a personal project to blend usability, design, and a bit of magic.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 Overview
+The Cantrip Café is a web app for Dungeons & Dragons 5e players who want an elegant, intuitive way to browse spells during their campaigns.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+It lets users **search, filter, and view detailed spell information** through a clean, responsive interface built with **Next.js**, **TypeScript**, and **Sass**.  
+Each spell card displays all relevant stats at a glance, and filters make it easy to find the perfect spell by name, school, or level.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project combines my passion for **accessibility and user-centered design** with my love for world-building, fantasy, and front-end craftsmanship.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🖥️ Live demo
+👉 [**Visit The Cantrip Café**](https://thecantripcafe.chloeadrian.dev/)  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can also see its dedicated project page on my [**portfolio**](https://chloeadrian.dev/en/project/thecantripcafe).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ⚙️ Tech stack
+- **Next.js** for fast, server-rendered React pages  
+- **TypeScript** for type safety and maintainability  
+- **Sass** for modular and flexible styling  
+- **Figma** for design and UI prototyping  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧠 Key features
+- Browse and filter spells by name, level, or school of magic  
+- Detailed spell pages with full stats and descriptions  
+- Fully responsive layout optimized for readability  
+- Accessible design with keyboard navigation and semantic markup  
+- Lightweight and performant static site  
+
+---
+
+## 🕊️ Reflection
+The Cantrip Café showcases my focus on **clarity, performance, and inclusive design**, while celebrating one of my favorite hobbies.  
+It’s a project that bridges storytelling and front-end development, and shows my love for building tools that make complex information easy and enjoyable to explore.
+
+---
+
+Thanks for reading, and may the dice be ever in your favor!  
+Chloé Adrian ✨
